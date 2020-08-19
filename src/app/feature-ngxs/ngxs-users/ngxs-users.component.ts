@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { User } from '../../shared/user.api';
 import { CreateUser, LoadUsers, RemoveUser } from '../store/users.actions';
@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   selector: 'app-users',
   templateUrl: './ngxs-users.component.html',
   styleUrls: ['./ngxs-users.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxsUsersComponent implements OnInit {
   @Select(UsersState) users$: Observable<UsersStateShape>;

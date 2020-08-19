@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectUsersCount, selectUsersStore } from '../store/users.selectors';
 import { User } from '../../shared/user.api';
@@ -8,6 +14,7 @@ import { createUser, loadUsers, removeUser } from '../store/users.actions';
   selector: 'app-users',
   templateUrl: './ngrx-users.component.html',
   styleUrls: ['./ngrx-users.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgrxUsersComponent implements OnInit {
   users$ = this.store.select(selectUsersStore);
