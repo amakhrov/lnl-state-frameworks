@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UsersComponent as NgrxUsersComponent } from './feature-ngrx/users/users.component';
+import { NgrxUsersComponent } from './feature-ngrx/ngrx-users/ngrx-users.component';
+import { NgxsUsersComponent } from './feature-ngxs/ngxs-users/ngxs-users.component';
 
-const routes: Routes = [{ path: 'ngrx', component: NgrxUsersComponent }];
+const routes: Routes = [
+  { path: 'ngrx', component: NgrxUsersComponent },
+  { path: 'ngxs', component: NgxsUsersComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

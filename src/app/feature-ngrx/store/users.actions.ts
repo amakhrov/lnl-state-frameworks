@@ -1,12 +1,12 @@
 import { createAction, props } from '@ngrx/store';
 import { User } from '../../shared/user.api';
 
-export const loadUsers = createAction('[Users] Load users');
+export const loadUsers = createAction('[Users] Load ngxs-ngrx-users');
 export const loadUsersSuccess = createAction(
-  '[Users] Load users success',
+  '[Users] Load ngxs-ngrx-users success',
   props<{ users: User[] }>()
 );
-export const loadUsersFail = createAction('[Users] Load users fail');
+export const loadUsersFail = createAction('[Users] Load ngxs-ngrx-users fail');
 
 export const createUser = createAction(
   '[Users] Create user',

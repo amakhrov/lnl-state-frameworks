@@ -1,0 +1,14 @@
+<ng-container *ngIf="users$ | async as state">
+  <div *ngIf="state.loading">Loading...</div>
+  Total users: {{ totalUsers$ | async }}
+  <div *ngFor="let user of state.users">
+    <app-user
+      [user]="user"
+      (remove)="remove(user)"
+    ></app-user>
+  </div>
+  <div>
+    <app-create-new (add)="create($event)"></app-create-new>
+  </div>
+
+</ng-container>
