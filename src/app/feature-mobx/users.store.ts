@@ -48,7 +48,7 @@ export class UsersStore {
     return this.userApi.remove(id).pipe(
       tap({
         next: action(() => {
-          this.users = this.users.filter((user) => user.id === id);
+          this.users = this.users.filter((user) => user.id !== id);
         }),
         error: () => {},
       })
