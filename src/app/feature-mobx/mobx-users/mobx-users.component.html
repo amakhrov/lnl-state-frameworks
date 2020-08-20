@@ -1,0 +1,14 @@
+<ng-container *mobxAutorun>
+  <div *ngIf="usersStore.loading">Loading...</div>
+  Total users: {{ usersStore.usersCount }}
+  <div *ngFor="let user of usersStore.users">
+    <app-user
+      [user]="user"
+      (remove)="remove(user)"
+    ></app-user>
+  </div>
+  <div>
+    <app-create-new (add)="create($event)"></app-create-new>
+  </div>
+
+</ng-container>
