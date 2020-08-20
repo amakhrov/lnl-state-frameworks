@@ -1,6 +1,6 @@
 <ng-container *ngIf="users$ | async as state">
   <div *ngIf="state.loading">Loading...</div>
-  Total users: {{ totalUsers$ | async }}
+  <app-total [total]="totalUsers$ | async"></app-total>
   <div *ngFor="let user of state.users">
     <app-user
       [user]="user"

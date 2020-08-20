@@ -1,6 +1,6 @@
 <ng-container *mobxAutorun>
   <div *ngIf="usersStore.loading">Loading...</div>
-  Total users: {{ usersStore.usersCount }}
+  <app-total [total]="usersStore.usersCount"></app-total>
   <div *ngFor="let user of usersStore.users">
     <app-user
       [user]="user"
