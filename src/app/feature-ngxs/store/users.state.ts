@@ -65,7 +65,7 @@ export class UsersState {
         next: () =>
           ctx.setState(
             patch({
-              users: removeItem<User>((user) => user.id === action.id),
+              users: removeItem<User>((user) => user!.id === action.id),
               loading: false,
             })
           ),

@@ -19,11 +19,11 @@ export class UsersStore {
     this.loading = true;
     return this.userApi.list().pipe(
       tap({
-        next: action('users loaded', (users) => {
+        next: action('users loaded', (users: User[]) => {
           this.users = users;
           this.loading = false;
         }),
-        error: action((_) => (this.loading = false)),
+        error: action(() => (this.loading = false)),
       })
     );
   }
@@ -32,13 +32,16 @@ export class UsersStore {
     this.loading = true;
     return this.userApi.create(name).pipe(
       tap({
-        next: action((user) => {
-          this.users.push(user);
-          this.loading = false;
-        }),
-        error: action((_) => (this.loading = false)),
+        next: this.userCreated,
+        error: action(() => (this.loading = false)),
       })
     );
+  }
+
+  @action.bound
+  private userCreated(user: User): void {
+    this.users.push(user);
+    this.loading = false;
   }
 
   @action removeUser(id: string): Observable<any> {
@@ -47,7 +50,7 @@ export class UsersStore {
         next: action(() => {
           this.users = this.users.filter((user) => user.id === id);
         }),
-        error: (_) => {},
+        error: () => {},
       })
     );
   }
