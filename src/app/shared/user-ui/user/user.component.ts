@@ -17,4 +17,8 @@ import { User } from '../../user.api';
 export class UserComponent {
   @Input() user: User;
   @Output() remove = new EventEmitter<void>();
+  @Output() rename = new EventEmitter<string>();
+  cd(): void {
+    console.log('user rendered');
+  }
 }

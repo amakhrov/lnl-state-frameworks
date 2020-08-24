@@ -34,4 +34,8 @@ export class NgrxUsersComponent implements OnInit {
   remove(user: User): void {
     this.store.dispatch(removeUser({ id: user.id }));
   }
+
+  cd(): void {
+    console.log('container rendered');
+  }
 }

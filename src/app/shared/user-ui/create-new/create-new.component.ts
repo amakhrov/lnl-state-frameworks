@@ -13,6 +13,7 @@ import {
 })
 export class CreateNewComponent {
   @Output() add = new EventEmitter<string>();
+  @Output() renameAll = new EventEmitter<void>();
 
   onClick(input: HTMLInputElement): void {
     this.add.emit(input.value);

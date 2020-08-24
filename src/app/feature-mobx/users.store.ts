@@ -54,4 +54,10 @@ export class UsersStore {
       })
     );
   }
+
+  @action renameAll(): void {
+    this.users.forEach((user) => {
+      user.name = 'User ' + Math.round(Math.random() * 1000);
+    });
+  }
 }
