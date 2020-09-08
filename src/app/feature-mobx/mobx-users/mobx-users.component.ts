@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { User } from '../../shared/user.api';
 import { UsersStore } from '../users.store';
-import { toJS } from 'mobx';
 
 @Component({
   selector: 'app-users',
@@ -11,8 +10,6 @@ import { toJS } from 'mobx';
 })
 export class MobxUsersComponent implements OnInit {
   constructor(public usersStore: UsersStore) {}
-
-  // toJS = toJS;
 
   ngOnInit(): void {
     this.usersStore.loadUsers().subscribe();
