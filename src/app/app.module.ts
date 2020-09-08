@@ -11,6 +11,7 @@ import { FeatureNgxsModule } from './feature-ngxs/feature-ngxs.module';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FeatureMobxModule } from './feature-mobx/feature-mobx.module';
+import { FeaturePlainModule } from './feature-plain/feature-plain.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { FeatureMobxModule } from './feature-mobx/feature-mobx.module';
     }),
     FeatureNgrxModule,
     FeatureNgxsModule,
+    FeaturePlainModule,
     FeatureMobxModule,
   ],
   providers: [],

@@ -7,22 +7,21 @@ export interface User {
   name: string;
 }
 
-const user1: User = {
-  id: '1',
-  name: 'John Doe',
-};
-
-const user2: User = {
-  id: '2',
-  name: 'Jane Moneypenny',
-};
-
 let lastId = 3;
 
 @Injectable({ providedIn: 'root' })
 export class UserApi {
   list(): Observable<User[]> {
-    return of([user1, user2]).pipe(delay(1000));
+    return of([
+      {
+        id: '1',
+        name: 'John Doe',
+      },
+      {
+        id: '2',
+        name: 'Jane Moneypenny',
+      },
+    ]).pipe(delay(1000));
   }
 
   remove(id: string): Observable<void> {

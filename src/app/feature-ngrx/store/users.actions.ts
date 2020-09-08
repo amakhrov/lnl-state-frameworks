@@ -27,3 +27,5 @@ export const removeUserSuccess = createAction(
   '[Users] Remove user success',
   props<{ id: string }>()
 );
+
+export const renameAll = createAction('[Users] Rename all');

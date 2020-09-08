@@ -1,0 +1,19 @@
+<ng-container>
+  <div *ngIf="usersStore.loading">Loading...</div>
+  <app-total [total]="usersStore.usersCount"></app-total>
+  <div *ngFor="let user of usersStore.users">
+    <app-user
+      [user]="user"
+      (remove)="remove(user)"
+    ></app-user>
+  </div>
+  <div>
+    <app-create-new
+      (add)="create($event)"
+      (renameAll)="usersStore.renameAll()">
+    </app-create-new>
+  </div>
+
+  {{ cd() }}
+
+</ng-container>

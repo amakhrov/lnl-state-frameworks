@@ -40,6 +40,13 @@ const territoryPreferencesReducer = createReducer<UsersState>(
   on(Actions.removeUserSuccess, (state, { id }) => ({
     ...state,
     users: state.users.filter((user) => user.id !== id),
+  })),
+  on(Actions.renameAll, (state) => ({
+    ...state,
+    users: state.users.map((user) => ({
+      ...user,
+      name: 'User ' + Math.round(Math.random() * 1000),
+    })),
   }))
 );
 

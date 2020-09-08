@@ -8,7 +8,12 @@ import {
 import { Store } from '@ngrx/store';
 import { selectUsersCount, selectUsersStore } from '../store/users.selectors';
 import { User } from '../../shared/user.api';
-import { createUser, loadUsers, removeUser } from '../store/users.actions';
+import {
+  createUser,
+  loadUsers,
+  removeUser,
+  renameAll,
+} from '../store/users.actions';
 
 @Component({
   selector: 'app-users',
@@ -29,6 +34,10 @@ export class NgrxUsersComponent implements OnInit {
 
   create(name: string): void {
     this.store.dispatch(createUser({ name }));
+  }
+
+  renameAll(): void {
+    this.store.dispatch(renameAll());
   }
 
   remove(user: User): void {
